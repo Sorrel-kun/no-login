@@ -102,7 +102,7 @@ Other versions might work, but have not been tested.
 1. Build the extension
 
    ```sh
-   web-ext build --overwrite-dest --ignore-files demo martin readme misc package-lock.json release.sh
+   ./build.sh
    ```
 
 2. The extension is now available in the `web-ext-artifacts` folder as a .zip file.
