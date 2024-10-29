@@ -2,3 +2,4 @@ martin/
 .idea/
 web-ext-artifacts/
 /node_modules/
+*.webm
