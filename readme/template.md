@@ -5,11 +5,13 @@
 
 # No Login
 
-This is a Mozilla Firefox Add-On to Access Websites Without Logging In .
+This is a Mozilla Firefox Add-On to access social media websites without logging in, by removing login popups, bypassing other banners, etc.
 
 Currently supported websites:
 - LinkedIn
 - Instagram
+- Facebook
+
 
 Note that the add-on is in its early phase; please submit a review for any issue or feature request.
 
