@@ -66,17 +66,17 @@ function removeLinkedinLogin() {
     let aria_hidden = main_content.getAttribute('aria-hidden');
     if (close_button && aria_hidden === 'true') {
         close_button.click();
+        log("Removed linkedin login banner: " + close_button);
         incrementSkipCounter();
-        log("Removed linkedin login banner");
         return;
     }
 
     let catalog_sign_in = document.querySelector('[aria-labelledby="base-contextual-sign-in-modal-modal-header"]');
     if (catalog_sign_in) {
         let element = closestTo(catalog_sign_in, document.body);
+        log("Removed linkedin login banner: " + element);
         element.remove();
         incrementSkipCounter();
-        log("Removed linkedin login banner");
     }
 
     let join_elem = document.querySelector('[class="join-form"]');
@@ -225,18 +225,18 @@ function removeFacebookLogin() {
 
     let banner = document.querySelector('[data-nosnippet=""]');
     if (banner) {
+        log("Removed facebook bottom login banner: " + banner);
         banner.remove();
         incrementSkipCounter();
-        log("Removed facebook bottom login banner");
     }
 
     let dialog = document.querySelector('[role="dialog"]');
     if (dialog && !dialog.getAttribute('aria-label')) {
-        let close_button = dialog.querySelector('[role="button"][aria-label="Close"]');
-        if (close_button) {
+        let close_button = dialog.querySelector('[role="button"]');
+        if (close_button && close_button.getAttribute('aria-label')) {
+            log("Removed facebook center login banner: " + close_button);
             close_button.click();
             incrementSkipCounter();
-            log("Removed facebook center login banner");
             return;
         }
     }
@@ -244,9 +244,9 @@ function removeFacebookLogin() {
     let form = document.getElementById('login_popup_cta_form');
     if (form) {
         element = closestTo(form, document.body);
+        log("Removed facebook center login banner: " + element);
         element.remove();
         incrementSkipCounter();
-        log("Removed facebook center login banner");
     }
 }
 
@@ -257,22 +257,19 @@ function removeInstagramLogin() {
 
     let banner = document.querySelector('[aria-label="Close"]');
     if (banner && banner.getAttribute('click')) {
+        log("Removed instagram login banner: " + banner);
         banner.click();
         incrementSkipCounter();
-        log("Removed instagram login banner");
     }
 
     let dialog = document.querySelector('[role="dialog"]');
     if (dialog && !dialog.getAttribute('aria-label')) {
         let close_button = dialog.querySelector('[role="button"]');
-        if (close_button) {
-            let aria_label = close_button.querySelector('[aria-label="Close"]');
-            if (aria_label) {
-                close_button.click();
-                incrementSkipCounter();
-                log("Removed instagram center login banner");
-                return;
-            }
+        if (close_button && close_button.getAttribute('aria-label')) {
+            log("Removed instagram center login banner: " + close_button);
+            close_button.click();
+            incrementSkipCounter();
+            return;
         }
     }
 
