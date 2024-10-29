@@ -233,7 +233,7 @@ function removeFacebookLogin() {
     let dialog = document.querySelector('[role="dialog"]');
     if (dialog && !dialog.getAttribute('aria-label')) {
         let close_button = dialog.querySelector('[role="button"]');
-        if (close_button && close_button.getAttribute('aria-label')) {
+        if (close_button && close_button.querySelector('[data-visualcompletion="css-img"]')) {
             log("Removed facebook center login banner: " + close_button);
             close_button.click();
             incrementSkipCounter();
@@ -265,7 +265,7 @@ function removeInstagramLogin() {
     let dialog = document.querySelector('[role="dialog"]');
     if (dialog && !dialog.getAttribute('aria-label')) {
         let close_button = dialog.querySelector('[role="button"]');
-        if (close_button && close_button.getAttribute('aria-label')) {
+        if (close_button && close_button.querySelector('[data-visualcompletion="css-img"]')) {
             log("Removed instagram center login banner: " + close_button);
             close_button.click();
             incrementSkipCounter();
