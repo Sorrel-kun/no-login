@@ -76,6 +76,7 @@ function removeLinkedinLogin() {
         let element = closestTo(catalog_sign_in, document.body);
         log("Removed linkedin login banner: " + element);
         element.remove();
+        document.body.classList.remove('overflow-hidden');
         incrementSkipCounter();
     }
 
