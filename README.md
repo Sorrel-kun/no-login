@@ -29,7 +29,7 @@ Note that the add-on is in its early phase; please submit a review for any issue
 
 Install the extension
 
-* at https://addons.mozilla.org/en-US/firefox/addon/no-login,
+* at https://addons.mozilla.org/addon/no-login,
 * or go to `Add-ons` and search for `no login`.
 
 Once installed, the extension will automatically and seamlessly work in the background.
@@ -56,7 +56,7 @@ To do so:
 
 ### Prerequisites
 
-* [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
+* [Mozilla Firefox](https://www.mozilla.org/firefox/new/)
 * [Node.js](https://nodejs.org/en/download/): 20.9.0
 * [npm](https://www.npmjs.com/get-npm): 10.1.0
 * [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/): 7.8.0
@@ -118,7 +118,7 @@ it as a new extension in your own account.
 ## Feedback
 
 ### Short Comments
-Please write a [review](https://addons.mozilla.org/en-US/firefox/addon/no-login/reviews/) in the Firefox store.
+Please write a [review](https://addons.mozilla.org/addon/no-login/reviews/) in the Firefox store.
 
 ### Issue / Bug Report / Feature Request
 - If you have a GitHub account, open an <a href="https://github.com/MartinBraquet/no-login/issues">issue</a> here.
@@ -132,4 +132,4 @@ To provide upgrades or fixes, please open a [pull request](https://github.com/Ma
 
 This extension is not affiliated with any of the companies hosting the websites mentioned above.
 
-This repo has not been tested on any other browser than Mozilla Firefox.
+This repo has not been tested on any browser other than Mozilla Firefox.
