@@ -53,6 +53,10 @@ function logOnce(x) {
     }
 }
 
+function incrementSkipCounter() {
+    browser.runtime.sendMessage({loginsSkipped: true});
+}
+
 function removeLinkedinLogin() {
     if (!window.location.href.includes('linkedin.com')) {
         return;
@@ -62,10 +66,19 @@ function removeLinkedinLogin() {
     let aria_hidden = main_content.getAttribute('aria-hidden');
     if (close_button && aria_hidden === 'true') {
         close_button.click();
-        browser.runtime.sendMessage({loginsSkipped: true});
+        incrementSkipCounter();
         log("Removed linkedin login banner");
         return;
     }
+
+    let catalog_sign_in = document.querySelector('[aria-labelledby="base-contextual-sign-in-modal-modal-header"]');
+    if (catalog_sign_in) {
+        let element = closestTo(catalog_sign_in, document.body);
+        element.remove();
+        incrementSkipCounter();
+        log("Removed linkedin login banner");
+    }
+
     let join_elem = document.querySelector('[class="join-form"]');
     if (!join_elem) {
         return;
@@ -96,7 +109,7 @@ function removeLinkedinLogin() {
             left: 50%;
             transform: translate(-50%, -50%);
             width: 50vw;
-            height: 30vh;
+            height: 50vh;
             background-color: #f0f0f0;
             border: 1px solid #ccc;
             padding: 20px;
@@ -197,20 +210,83 @@ function removeLinkedinLogin() {
     log("Added linkedin login banner for " + sessionRedirect);
 }
 
+function closestTo(element, to) {
+    let parent = element;
+    while (parent.parentNode && parent.parentNode !== to) {
+        parent = parent.parentNode;
+    }
+    return parent;
+}
+
+function removeFacebookLogin() {
+    if (!window.location.href.includes('facebook.com')) {
+        return;
+    }
+
+    let banner = document.querySelector('[data-nosnippet=""]');
+    if (banner) {
+        banner.remove();
+        incrementSkipCounter();
+        log("Removed facebook bottom login banner");
+    }
+
+    let dialog = document.querySelector('[role="dialog"]');
+    if (dialog && !dialog.getAttribute('aria-label')) {
+        let close_button = dialog.querySelector('[role="button"][aria-label="Close"]');
+        if (close_button) {
+            close_button.click();
+            incrementSkipCounter();
+            log("Removed facebook center login banner");
+            return;
+        }
+    }
+
+    let form = document.getElementById('login_popup_cta_form');
+    if (form) {
+        element = closestTo(form, document.body);
+        element.remove();
+        incrementSkipCounter();
+        log("Removed facebook center login banner");
+    }
+}
+
 function removeInstagramLogin() {
     if (!window.location.href.includes('instagram.com')) {
         return;
     }
-    // let close_elem = document.querySelector('[role="button"]');
-    // if (!close_elem) {
+
+    let banner = document.querySelector('[aria-label="Close"]');
+    if (banner && banner.getAttribute('click')) {
+        banner.click();
+        incrementSkipCounter();
+        log("Removed instagram login banner");
+    }
+
+    let dialog = document.querySelector('[role="dialog"]');
+    if (dialog && !dialog.getAttribute('aria-label')) {
+        let close_button = dialog.querySelector('[role="button"]');
+        if (close_button) {
+            let aria_label = close_button.querySelector('[aria-label="Close"]');
+            if (aria_label) {
+                close_button.click();
+                incrementSkipCounter();
+                log("Removed instagram center login banner");
+                return;
+            }
+        }
+    }
+
+    // let close_button = dialog.querySelector('[role="button"]');
+    // if (!close_button) {
     //     return;
     // }
-    // close_elem.click();
+    // close_button.click();
     // log("Removed instagram login banner");
 }
 
 async function checkForLogins() {
     removeLinkedinLogin();
+    removeFacebookLogin();
     removeInstagramLogin();
 }
 

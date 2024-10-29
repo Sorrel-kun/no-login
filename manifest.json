@@ -1,13 +1,14 @@
 {
   "manifest_version": 2,
   "name": "No Login",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Access social media websites without logging in",
   "permissions": [
     "storage",
     "activeTab",
     "scripting",
     "*://*.linkedin.com/*",
+    "*://*.facebook.com/*",
     "*://*.instagram.com/*"
   ],
   "browser_action": {
@@ -29,6 +30,7 @@
     {
       "matches": [
         "*://*.linkedin.com/*",
+        "*://*.facebook.com/*",
         "*://*.instagram.com/*"
       ],
       "js": [

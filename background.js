@@ -7,7 +7,7 @@ browser.runtime.onInstalled.addListener(() => {
 
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     console.log('onUpdated');
-    if (changeInfo.status === 'complete' && tab.url && tab.url.includes('linkedin.com')) {
+    if (changeInfo.status === 'complete') {
         browser.scripting.executeScript({
             target: {tabId: tabId}, files: ['utils.js', 'content.js']
         }, () => {
