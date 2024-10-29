@@ -256,17 +256,17 @@ function removeInstagramLogin() {
         return;
     }
 
-    let banner = document.querySelector('[aria-label="Close"]');
-    if (banner && banner.getAttribute('click')) {
-        log("Removed instagram login banner: " + banner);
-        banner.click();
-        incrementSkipCounter();
-    }
+    // let banner = document.querySelector('[aria-label="Close"]');
+    // if (banner && banner.getAttribute('click')) {
+    //     log("Removed instagram login banner: " + banner);
+    //     banner.click();
+    //     incrementSkipCounter();
+    // }
 
     let dialog = document.querySelector('[role="dialog"]');
     if (dialog && !dialog.getAttribute('aria-label')) {
         let close_button = dialog.querySelector('[role="button"]');
-        if (close_button && close_button.querySelector('[data-visualcompletion="css-img"]')) {
+        if (close_button && close_button.getElementsByTagName('polyline').length > 0) {
             log("Removed instagram center login banner: " + close_button);
             close_button.click();
             incrementSkipCounter();
