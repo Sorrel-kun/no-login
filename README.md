@@ -17,7 +17,7 @@ Note that the add-on is in its early phase; please submit a review for any issue
 
 #### Demo
 
-![](https://github.com/MartinBraquet/no-login/blob/main/demo/no-login-demo.gif?raw=true)
+![](https://github.com/MartinBraquet/no-login/blob/main/demo/demo.gif?raw=true)
 
 #### Statistics
 
