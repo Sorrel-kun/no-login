@@ -29,7 +29,7 @@ Note that the add-on is in its early phase; please submit a review for any issue
 
 Install the extension
 
-* at https://addons.mozilla.org/firefox/addon/no-login,
+* at https://addons.mozilla.org/addon/no-login,
 * or go to `Add-ons` and search for `no login`.
 
 Once installed, the extension will automatically and seamlessly work in the background.
@@ -118,7 +118,7 @@ it as a new extension in your own account.
 ## Feedback
 
 ### Short Comments
-Please write a [review](https://addons.mozilla.org/firefox/addon/no-login/reviews/) in the Firefox store.
+Please write a [review](https://addons.mozilla.org/addon/no-login/reviews/) in the Firefox store.
 
 ### Issue / Bug Report / Feature Request
 - If you have a GitHub account, open an <a href="https://github.com/MartinBraquet/no-login/issues">issue</a> here.
