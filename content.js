@@ -237,6 +237,7 @@ function closestTo(element, to) {
 
 function clickButton(close_button) {
     log("Clicking facebook center dialog close button: " + getAttributes(close_button));
+    log(close_button.outerHTML)
     close_button.click();
     incrementSkipCounter();
     return true;
@@ -256,12 +257,14 @@ function removeFacebookCenterDialogButton() {
     checkAllButtons();
     let dialog = document.querySelector('[role="dialog"]');
     if (!dialog) return;
-    if (!dialog.getAttribute('aria-label')) return;
-    let close_button = dialog.querySelector('[role="button"]');
-    if (!close_button) return;
-
-    if (close_button.querySelector('[data-visualcompletion="css-img"]')) {
-        return clickButton(close_button);
+    let form = dialog.querySelector('[id="login_popup_cta_form"]');
+    if (!form) return;
+    // if (!dialog.getAttribute('aria-label')) return;
+    let close_buttons = dialog.querySelectorAll('[role="button"]');
+    for (let close_button of close_buttons) {
+        if (close_button.querySelector('[data-visualcompletion="css-img"]')) {
+            return clickButton(close_button);
+        }
     }
 }
 
@@ -304,12 +307,16 @@ function removeInstagramLogin() {
         return;
     }
 
-    // let banner = document.querySelector('[aria-label="Close"]');
-    // if (banner && banner.getAttribute('click')) {
-    //     log("Removed instagram login banner: " + banner);
-    //     banner.click();
-    //     incrementSkipCounter();
-    // }
+    let buttons = document.getElementsByTagName('button');
+    for (let button of buttons) {
+        let banner = button.querySelector('[aria-label="Close"]');
+        if (banner && typeof button.click === 'function') {
+            log("Removed instagram login banner: " + button);
+            button.click();
+            incrementSkipCounter();
+        }
+    }
+
 
     // let dialog = document.querySelector('[role="dialog"]');
     // if (dialog && !dialog.getAttribute('aria-label')) {
