@@ -83,10 +83,19 @@ Other versions might work, but have not been tested.
    sudo npm install mustache jsdom
    ```
 
-3. Run the extension
+3. Run the extension on desktop:
    ```sh
    web-ext run
    ```
+   Note: to run on a mobile device connected to your computer, first install the Firefox Nightly app on that mobile. Then set up `adb`:
+   ```sh
+   sudo apt install android-tools-adb
+   adb devices
+   ```
+    Then, run the extension:
+    ```sh
+    web-ext run -t firefox-android --adb-device <YOUR_DEVICE_ID> --firefox-apk org.mozilla.fenix
+    ```
 
 ### Debugging
 
