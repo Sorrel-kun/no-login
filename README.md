@@ -124,6 +124,10 @@ Note: naturally, you won't be able to publish the same extension or overwrite th
 If your extension diverges from the current one, you can change the extension's ID in the `manifest.json` file and publish
 it as a new extension in your own account.
 
+## Mozilla Add-ons Store
+
+Go to the [mozilla](../mozilla) folder to view and update the add-on texts on the Mozilla Add-ons Store.
+
 ## Feedback
 
 ### Short Comments
