@@ -126,7 +126,7 @@ it as a new extension in your own account.
 
 ## Mozilla Add-ons Store
 
-Go to the [mozilla](mozilla) folder to view and update the texts on the Mozilla Add-ons Store.
+Go to the [store](store) folder to view and update the texts on the Mozilla Add-ons Store.
 
 ## Feedback
 
@@ -147,6 +147,7 @@ If you would like to contribute, but you do not know what to do, here are some s
 - [ ] Add support for additional websites
 - [ ] Make the extension compatible with other browsers (e.g., Chrome, etc.)
 - [ ] Improve the extension's [popup](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) (right now it only shows the number of logins skipped). Related files: [popup.js](popup.js), [popup.html](popup.html)
+- [ ] Add better screenshots for the add-on page in the store (in the [store](store) folder)
 
 ## Disclaimer
 
