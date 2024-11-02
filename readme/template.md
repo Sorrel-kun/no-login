@@ -141,6 +141,13 @@ Please write a [review](https://addons.mozilla.org/addon/no-login/reviews/) in t
 
 To provide upgrades or fixes, please open a [pull request](https://github.com/MartinBraquet/no-login/pulls).
 
+If you would like to contribute, but you do not know what to do, here are some suggestions:
+
+[] Provide a nice add-on logo [images](images) (the current one is very generic)
+[] Add support for additional websites
+[] Make the extension compatible with other browsers (e.g., Chrome, etc.)
+[] Improve the extension's [popup](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) (right now it only shows the number of logins skipped). Related files: [popup.js](popup.js), [popup.html](popup.html)
+
 ## Disclaimer
 
 This extension is not affiliated with any of the companies hosting the websites mentioned above.
