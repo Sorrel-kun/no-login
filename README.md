@@ -23,7 +23,7 @@ Note that the add-on is in its early phase; please submit a review for any issue
 
 |        **Users**         |        **Stars**         |         **Reviews**          |
 |:------------------------:|:------------------------:|:----------------------------:|
-| 6 |  |  |
+| 7 |  |  |
 
 ## Installation
 
