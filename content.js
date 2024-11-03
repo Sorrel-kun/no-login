@@ -1,6 +1,38 @@
 // utils.js is already imported as a content script.
 // Debug: ctrl+shift+i, click on the extension's tab.
 
+const closeTranslations = [
+    "Close",
+    "Cerrar",
+    "Fermer",
+    "Schließen",
+    "Chiudere",
+    "Fechar",
+    "Закрыть",
+    "关闭",
+    "閉じる",
+    "닫다",
+    "إغلاق",
+    "बंद करना",
+    "Kapatmak",
+    "Stänga",
+    "Sluiten",
+    "Sulkea",
+    "Lukke",
+    "Lukke",
+    "Zavřít",
+    "Bezárni",
+    "ปิด",
+    "Đóng",
+    "לסגור",
+    "Închide",
+    "Затвори",
+    "Zatvoriť",
+    "Uždaryti",
+    "Aizvērt",
+    "Закрити"
+];
+
 function log(x) {
     console.log('no-login - ' + x);
 }
