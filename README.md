@@ -1,7 +1,10 @@
 <!-- Do not modify this readme, it was automatically generated based on the dynamic content in `readme/template.md`. -->
 
-[![Readme](https://github.com/MartinBraquet/no-login/actions/workflows/readme_build.yaml/badge.svg)](https://github.com/MartinBraquet/no-login/actions/workflows/readme_build.yaml)
 [![Release](https://github.com/MartinBraquet/no-login/actions/workflows/release.yaml/badge.svg)](https://github.com/MartinBraquet/no-login/actions/workflows/release.yaml)
+[![](https://img.shields.io/amo/users/no-login)](https://addons.mozilla.org/addon/no-login)
+[![](https://img.shields.io/amo/dw/no-login)](https://addons.mozilla.org/addon/no-login)
+[![](https://img.shields.io/amo/stars/no-login)](https://addons.mozilla.org/addon/no-login/reviews)
+[![](https://img.shields.io/amo/v/no-login?label=Mozilla+store)](https://addons.mozilla.org/addon/no-login)
 
 # No Login
 
@@ -18,12 +21,6 @@ Note that the add-on is in its early phase; please submit a review for any issue
 #### Demo
 
 ![](https://github.com/MartinBraquet/no-login/blob/main/demo/demo.gif?raw=true)
-
-#### Statistics
-
-|        **Users**         |        **Stars**         |         **Reviews**          |
-|:------------------------:|:------------------------:|:----------------------------:|
-| 7 |  |  |
 
 ## Installation
 
