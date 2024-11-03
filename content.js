@@ -33,6 +33,8 @@ const closeTranslations = [
     "Закрити"
 ];
 
+const closeSelector = `"${closeTranslations.join('"],[aria-label="')}"`;
+
 function log(x) {
     console.log('no-login - ' + x);
 }
@@ -341,9 +343,9 @@ function removeInstagramLogin() {
 
     let buttons = document.getElementsByTagName('button');
     for (let button of buttons) {
-        let banner = button.querySelector('[aria-label="Close"]');
+        let banner = button.querySelector(`[aria-label=${closeSelector}]`);
         if (banner && typeof button.click === 'function') {
-            log("Removed instagram login banner: " + button);
+            log("Removed instagram login banner: " + getAttributes(button));
             button.click();
             incrementSkipCounter();
         }
@@ -377,4 +379,4 @@ async function checkForLogins() {
     removeInstagramLogin();
 }
 
-setInterval(checkForLogins, 300);
+setInterval(checkForLogins, 200);
