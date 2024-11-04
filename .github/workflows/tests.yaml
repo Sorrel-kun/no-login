@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 jobs:
-  release:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -21,4 +21,4 @@ jobs:
 
       - name: Run tests
         run: |
-          ./run_tests.sh
+          ./github/workflows/run_tests.sh
