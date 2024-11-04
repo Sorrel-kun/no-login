@@ -364,7 +364,11 @@ async function removeInstagramLogin() {
 }
 
 export async function checkForLogins() {
-    await removeLinkedinLogin();
-    await removeFacebookLogin();
-    await removeInstagramLogin();
+    browser.runtime.sendMessage({ message: "is_active_tab" }, async function(response) {
+        if (response.isActiveTab) {
+            await removeLinkedinLogin();
+            await removeFacebookLogin();
+            await removeInstagramLogin();
+        }
+    });
 }

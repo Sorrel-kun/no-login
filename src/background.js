@@ -12,7 +12,7 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         if (tab.url.match(/.*(linkedin|facebook|instagram)\.com.*/)) {
             // Inject content.js as a module
             browser.scripting.executeScript({
-                target: { tabId: tabId },
+                target: {tabId: tabId},
                 files: ['dist/content.bundle.js'],
                 injectImmediately: true  // This option allows to inject the script immediately
             });
@@ -21,11 +21,14 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 });
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log('onMessage');
     if (request.loginsSkipped !== undefined) {
+        console.log('onMessage loginsSkipped');
         browser.storage.local.get('loginsSkipped', (data) => {
             let newCount = (data.loginsSkipped || 0) + 1;
             browser.storage.local.set({loginsSkipped: newCount});
         });
+    } else if (request.message === "is_active_tab") {
+        sendResponse({isActiveTab: sender.tab.active});
+        return true; // Indicates you want to send a response asynchronously
     }
 });
