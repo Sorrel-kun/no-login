@@ -8,4 +8,6 @@ npm list @babel/register
 npm install .
 npm list
 
-mocha tests
+echo $PATH
+
+npm test

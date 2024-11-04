@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "test": "mocha tests",
     "build": "webpack",
     "start:firefox": "web-ext run --firefox=/snap/firefox/5134/usr/lib/firefox/firefox --verbose --devtools",
     "start:chromium": "web-ext run -t chromium --verbose",
