@@ -363,11 +363,16 @@ async function removeInstagramLogin() {
     // log("Removed instagram login banner");
 }
 
-export async function checkForLogins() {
-    let isActiveTab = undefined;
-    browser.runtime.sendMessage({message: "is_active_tab"}, function (response) {
-        isActiveTab = response.isActiveTab;
+const checkIfActiveTab = async () => {
+    return new Promise((resolve, reject) => {
+        browser.runtime.sendMessage({message: "is_active_tab"}, function (response) {
+            resolve(response.isActiveTab);
+        });
     });
+};
+
+export async function checkForLogins() {
+    let isActiveTab = await checkIfActiveTab();
     if (isActiveTab) {
         await removeLinkedinLogin();
         await removeFacebookLogin();

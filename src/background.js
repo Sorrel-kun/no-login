@@ -29,6 +29,5 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
         });
     } else if (request.message === "is_active_tab") {
         sendResponse({isActiveTab: sender.tab.active});
-        return true; // Indicates you want to send a response asynchronously
     }
 });
