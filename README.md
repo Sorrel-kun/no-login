@@ -83,7 +83,7 @@ Other versions might work, but have not been tested.
 
 3. Run the extension on desktop:
    ```sh
-   web-ext run
+   npm run start
    ```
    Note: to run on a mobile device connected to your computer, first install the Firefox Nightly app on that mobile. Then set up `adb`:
    ```sh
@@ -92,6 +92,7 @@ Other versions might work, but have not been tested.
    ```
     Then, run the extension:
     ```sh
+    npm run build
     web-ext run -t firefox-android --adb-device <YOUR_DEVICE_ID> --firefox-apk org.mozilla.fenix
     ```
 
@@ -107,7 +108,7 @@ Other versions might work, but have not been tested.
 ### Testing
 
 ```shell
-mocha tests
+npm test
 ```
 
 ### Build
