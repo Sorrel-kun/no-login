@@ -364,11 +364,13 @@ async function removeInstagramLogin() {
 }
 
 export async function checkForLogins() {
-    browser.runtime.sendMessage({ message: "is_active_tab" }, async function(response) {
-        if (response.isActiveTab) {
-            await removeLinkedinLogin();
-            await removeFacebookLogin();
-            await removeInstagramLogin();
-        }
+    let isActiveTab = undefined;
+    browser.runtime.sendMessage({message: "is_active_tab"}, function (response) {
+        isActiveTab = response.isActiveTab;
     });
+    if (isActiveTab) {
+        await removeLinkedinLogin();
+        await removeFacebookLogin();
+        await removeInstagramLogin();
+    }
 }

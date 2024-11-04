@@ -24,7 +24,10 @@ describe("First Tests", function () {
                 local: new Dictionary()
             },
             runtime: {
-                sendMessage: () => {
+                sendMessage: function (data, callback) {
+                    if (data.message === "is_active_tab") {
+                        callback({isActiveTab: true});
+                    }
                 }
             }
         };
