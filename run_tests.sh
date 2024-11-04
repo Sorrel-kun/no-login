@@ -1,8 +1,8 @@
 set -e
 
 sudo apt install npm
-sudo npm install --global web-ext
-sudo npm install .
-sudo npm list
+npm install web-ext
+npm install .
+npm list
 
 mocha tests
