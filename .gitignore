@@ -3,3 +3,4 @@ martin/
 web-ext-artifacts/
 /node_modules/
 *.webm
+dist/

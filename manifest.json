@@ -1,18 +1,20 @@
 {
-  "manifest_version": 2,
   "name": "No Login",
   "version": "1.8",
+  "manifest_version": 3,
   "description": "Access social media websites without logging in",
   "permissions": [
     "storage",
     "activeTab",
-    "scripting",
+    "scripting"
+  ],
+  "host_permissions": [
     "*://*.linkedin.com/*",
     "*://*.facebook.com/*",
     "*://*.instagram.com/*"
   ],
-  "browser_action": {
-    "default_popup": "popup.html",
+  "action": {
+    "default_popup": "src/popup.html",
     "default_icon": {
       "16": "images/icon16.png",
       "48": "images/icon48.png",
@@ -20,11 +22,7 @@
     }
   },
   "background": {
-    "scripts": [
-      "utils.js",
-      "background.js"
-    ],
-    "persistent": false
+    "scripts": ["dist/background.bundle.js"]
   },
   "content_scripts": [
     {
@@ -34,8 +32,7 @@
         "*://*.instagram.com/*"
       ],
       "js": [
-        "utils.js",
-        "content.js"
+        "dist/content.bundle.js"
       ]
     }
   ],

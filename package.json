@@ -1,16 +1,26 @@
 {
   "scripts": {
-    "start:firefox": "web-ext run --firefox=/snap/firefox/5134/usr/lib/firefox/firefox --verbose",
+    "build": "webpack",
+    "start:firefox": "web-ext run --firefox=/snap/firefox/5134/usr/lib/firefox/firefox --verbose --devtools",
     "start:chromium": "web-ext run -t chromium --verbose",
     "start:firefox-android": "web-ext run -t firefox-android --adb-device R58NC0CSMMH --firefox-apk org.mozilla.firefox --verbose"
   },
   "name": "no-login",
   "description": "Access some sites without logging in",
-  "main": "background.js",
+  "main": "src/background.js",
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "jsdom": "^23.0.1",
-    "mustache": "^4.2.0"
+    "jsdom": "^23.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "expect": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "mocha": "^10.8.2",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
   }
 }

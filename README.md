@@ -1,5 +1,6 @@
 <!-- Do not modify this readme, it was automatically generated based on the dynamic content in `readme/template.md`. -->
 
+[![Tests](https://github.com/MartinBraquet/no-login/actions/workflows/tests.yaml/badge.svg)](https://github.com/MartinBraquet/no-login/actions/workflows/tests.yaml)
 [![Release](https://github.com/MartinBraquet/no-login/actions/workflows/release.yaml/badge.svg)](https://github.com/MartinBraquet/no-login/actions/workflows/release.yaml)
 [![](https://img.shields.io/amo/users/no-login)](https://addons.mozilla.org/addon/no-login)
 [![](https://img.shields.io/amo/dw/no-login)](https://addons.mozilla.org/addon/no-login)
@@ -77,7 +78,7 @@ Other versions might work, but have not been tested.
    ```sh
    sudo apt install npm
    sudo npm install --global web-ext
-   sudo npm install mustache jsdom
+   npm install .
    ```
 
 3. Run the extension on desktop:
@@ -102,6 +103,12 @@ Other versions might work, but have not been tested.
    Ctrl + Shift + I
    ```
    Or `about:debugging#/runtime/this-firefox` and click on `Inspect` to open the extension console.
+
+### Testing
+
+```shell
+mocha tests
+```
 
 ### Build
 
@@ -143,7 +150,7 @@ If you would like to contribute, but you do not know what to do, here are some s
 - [ ] Provide a nice add-on logo in [images](images) (the current one is very generic)
 - [ ] Add support for additional websites
 - [ ] Make the extension compatible with other browsers (e.g., Chrome, etc.)
-- [ ] Improve the extension's [popup](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) (right now it only shows the number of logins skipped). Related files: [popup.js](popup.js), [popup.html](popup.html)
+- [ ] Improve the extension's [popup](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) (right now it only shows the number of logins skipped). Related files: [popup.js](src/popup.js), [popup.html](src/popup.html)
 - [ ] Add better screenshots for the add-on page in the store (in the [store](store) folder)
 
 ## Disclaimer
