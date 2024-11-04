@@ -1,3 +1,4 @@
+import {local} from "./utils";
 
 const closeTranslations = [
     "Close",
@@ -95,10 +96,10 @@ function getLinkedinCloseButton() {
     }
 }
 
-function removeLinkedinLogin() {
-    if (!window.location.href.includes('linkedin.com')) {
-        return;
-    }
+async function removeLinkedinLogin() {
+    if (!window.location.href.includes('linkedin.com')) return;
+    let wanted = await readLocalStorage('linkedinWanted');
+    if (!wanted) return;
     let close_button = getLinkedinCloseButton();
     if (close_button) {
         let main_content = document.getElementById('main-content');
@@ -292,10 +293,10 @@ function removeFacebookCenterDialogButton() {
     }
 }
 
-function removeFacebookLogin() {
-    if (!window.location.href.includes('facebook.com')) {
-        return;
-    }
+async function removeFacebookLogin() {
+    if (!window.location.href.includes('facebook.com')) return;
+    let wanted = await readLocalStorage('facebookWanted');
+    if (!wanted) return;
 
     // Bottom banner
     let banner = document.querySelector('[data-nosnippet=""]');
@@ -326,10 +327,10 @@ function removeFacebookLogin() {
     }
 }
 
-function removeInstagramLogin() {
-    if (!window.location.href.includes('instagram.com')) {
-        return;
-    }
+async function removeInstagramLogin() {
+    if (!window.location.href.includes('instagram.com')) return;
+    let wanted = await readLocalStorage('instagramWanted');
+    if (!wanted) return;
 
     let buttons = document.getElementsByTagName('button');
     for (let button of buttons) {
@@ -340,7 +341,6 @@ function removeInstagramLogin() {
             incrementSkipCounter();
         }
     }
-
 
     // let dialog = document.querySelector('[role="dialog"]');
     // if (dialog && !dialog.getAttribute('aria-label')) {
@@ -364,7 +364,7 @@ function removeInstagramLogin() {
 }
 
 export async function checkForLogins() {
-    removeLinkedinLogin();
-    removeFacebookLogin();
-    removeInstagramLogin();
+    await removeLinkedinLogin();
+    await removeFacebookLogin();
+    await removeInstagramLogin();
 }

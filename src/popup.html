@@ -125,6 +125,36 @@
 <body>
   <h1>No Login</h1>
   <p>Logins skipped: <span id="loginsSkipped"></span></p>
+  <table>
+    <tr>
+      <td align="left"><label for="facebookWanted">Facebook</label></td>
+      <td>
+        <label class="switch">
+          <input type="checkbox" id="facebookWanted" name="muteWanted">
+          <span class="slider round"></span>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td align="left"><label for="instagramWanted">Instagram</label></td>
+      <td>
+        <label class="switch">
+          <input type="checkbox" id="instagramWanted" name="muteWanted">
+          <span class="slider round"></span>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td align="left"><label for="linkedinWanted">LinkedIn</label></td>
+      <td>
+        <label class="switch">
+          <input type="checkbox" id="linkedinWanted" name="muteWanted">
+          <span class="slider round"></span>
+        </label>
+      </td>
+    </tr>
+  </table>
+  <button class="button" id="restoreDefaults">Restore Defaults</button>
   <script src="../dist/popup.bundle.js"></script>
 </body>
 

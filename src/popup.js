@@ -15,7 +15,39 @@ function setElement(x, value) {
     });
 }
 
+function addListener(x, value, conversion) {
+    let element = document.getElementById(x);
+    element.addEventListener('change', (event) => {
+        let v = event.target[value];
+        if (conversion === "int") {
+            v = parseInt(v);
+        }
+        local.set({[x]: v});
+        console.log("Changed " + x + " to " + v);
+    });
+}
+
+function setElementAndListener(x, value, conversion) {
+    setElement(x, value);
+    addListener(x, value, conversion);
+}
+
+function restoreDefaults() {
+    for (let x in defaultOptions) {
+        local.set({[x]: defaultOptions[x]});
+        let element = document.getElementById(x);
+        if (typeof defaultOptions[x] === "boolean") {
+            element.checked = defaultOptions[x];
+        } else {
+            element.value = defaultOptions[x];
+        }
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     setElement("loginsSkipped", "textContent");
+    setElementAndListener("facebookWanted", "checked");
+    setElementAndListener("instagramWanted", "checked");
+    setElementAndListener("linkedinWanted", "checked");
+    document.getElementById("restoreDefaults").addEventListener('click', restoreDefaults);
 });
