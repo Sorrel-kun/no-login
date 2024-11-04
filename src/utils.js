@@ -4,4 +4,4 @@ export const defaultOptions = {
     instagramWanted: true,
     linkedinWanted: true,
 }
-export const local = browser.storage.local;
+// export const local = browser.storage.local;

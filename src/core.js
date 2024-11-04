@@ -1,4 +1,4 @@
-import {local} from "./utils";
+import {defaultOptions} from "./utils";
 
 const closeTranslations = [
     "Close",
@@ -55,11 +55,11 @@ const strToHash = (str, seed = 0) => {
 
 const readLocalStorage = async (key) => {
     return new Promise((resolve, reject) => {
-        local.get([key], function (result) {
+        browser.storage.local.get([key], function (result) {
             let value = result[key];
             if (value === undefined) {
                 value = defaultOptions[key];
-                local.set({[key]: value});
+                browser.storage.local.set({[key]: value});
             }
             resolve(value);
         });
