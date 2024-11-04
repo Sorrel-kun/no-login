@@ -21,4 +21,4 @@ jobs:
 
       - name: Run tests
         run: |
-          ./github/workflows/run_tests.sh
+          ./.github/workflows/run_tests.sh
