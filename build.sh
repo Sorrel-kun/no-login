@@ -1,1 +1,1 @@
-web-ext build --overwrite-dest --ignore-files demo martin readme misc package-lock.json release.sh build.sh mozilla
+web-ext build --overwrite-dest --ignore-files demo martin readme misc package-lock.json release.sh build.sh store tests
