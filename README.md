@@ -152,6 +152,7 @@ If you would like to contribute, but you do not know what to do, here are some s
 - [ ] Make the extension compatible with other browsers (e.g., Chrome, etc.)
 - [ ] Improve the extension's [popup](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) (right now it only shows the number of logins skipped). Related files: [popup.js](src/popup.js), [popup.html](src/popup.html)
 - [ ] Add better screenshots for the add-on page in the store (in the [store](store) folder)
+- [ ] Add unit and integration tests
 
 ## Disclaimer
 
