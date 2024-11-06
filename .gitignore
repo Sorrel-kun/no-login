@@ -6,3 +6,4 @@ web-ext-artifacts/
 dist/
 coverage/
 .nyc_output/
+/.amo-upload-uuid

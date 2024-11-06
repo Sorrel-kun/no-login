@@ -3,11 +3,13 @@ set -e
 tag=$(python -c "import json; print(json.load(open('manifest.json'))['version'])")
 tagged=$(git tag -l $tag)
 if [ -z "$tagged" ]; then
+  ./sign.sh
+
   git tag -a "$tag" -m "Release $tag"
   git push origin "$tag"
   echo "Tagged release $tag"
 
-  gh release create "$tag" \
+  gh release create "$tag" web-ext-artifacts/no_login-$tag.xpi \
       --repo="$GITHUB_REPOSITORY" \
       --title="$tag" \
       --generate-notes
