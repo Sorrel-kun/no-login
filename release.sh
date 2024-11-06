@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 tag=$(python -c "import json; print(json.load(open('manifest.json'))['version'])")
@@ -7,6 +9,7 @@ if [ -z "$tagged" ]; then
   npm install --global web-ext
   npm install .
   npm run build
+
   ./sign.sh
 
   git tag -a "$tag" -m "Release $tag"

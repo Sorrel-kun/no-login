@@ -24,7 +24,7 @@ module.exports = {
     ],
     sign: {
         channel: "listed",
-        amoMetadata: "releases/amo_metadata.json",
+        amoMetadata: "amo_metadata.json",
     },
     run: {
         startUrl: [

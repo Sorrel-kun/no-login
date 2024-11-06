@@ -123,7 +123,14 @@ npm test
 
 ### Release
 
-[Submit](https://addons.mozilla.org) the .zip file to Mozilla for review and publication.
+When you update the version in [manifest.json](manifest.json) and push the changes to the `main` branch, a GitHub action will automatically
+publish on the Mozilla Add-ons Store, as well as on GitHub. You can also add release notes (for the Add-ons Store) in
+[amo_metadata.json](amo_metadata.json).
+
+#### Old Fashioned Submission
+
+For users who want more control and visibility over the submission process of their own add-on, they can build and
+[submit](https://addons.mozilla.org) the .zip file to Mozilla for review and publication.
 
 Note: naturally, you won't be able to publish the same extension or overwrite the existing one.
 If your extension diverges from the current one, you can change the extension's ID in the `manifest.json` file and publish

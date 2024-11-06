@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e
+
 if [ -z "$AMO_JWT_ISSUER" ]; then
   source /home/martin/Documents/Passwords/amo_creds.sh
 fi
