@@ -5,6 +5,8 @@ tagged=$(git tag -l $tag)
 if [ -z "$tagged" ]; then
   sudo apt install npm
   npm install --global web-ext
+  npm install .
+  npm run build
   ./sign.sh
 
   git tag -a "$tag" -m "Release $tag"
