@@ -353,6 +353,28 @@ async function removeInstagramLogin() {
             return;
         }
     }
+
+    // Log in center dialog without close button
+    let form = document.getElementById('loginForm');
+    if (form) {
+        let element = closestTo(form, document.body);
+        log("Removed instagram center login dialog loginForm: " + getAttributes(element));
+        element.remove();
+        incrementSkipCounter();
+    }
+
+    form = document.querySelector('[href="/accounts/signup/phone"]');
+    if (form) {
+        let articles = document.getElementsByTagName('article');
+        if (articles.length > 0) {
+            let article = articles[articles.length-1];
+            let element = article.nextElementSibling;
+            log("Removed instagram center login dialog href: " + getAttributes(element));
+            element.remove();
+            incrementSkipCounter();
+        }
+    }
+
     // }
 
     // let close_button = dialog.querySelector('[role="button"]');
