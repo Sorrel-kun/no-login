@@ -4,9 +4,9 @@
     "test:coverage": "nyc mocha",
     "build": "webpack",
     "start": "npm run build && web-ext run",
-    "start:firefox": "npm run build && web-ext run --firefox=/snap/firefox/5134/usr/lib/firefox/firefox",
+    "start:firefox": "npm run build && web-ext run --firefox=/snap/firefox/5600/usr/lib/firefox/firefox",
     "start:chromium": "npm run build && web-ext run -t chromium",
-    "start:firefox-android": "npm run build && web-ext run -t firefox-android --adb-device R58NC0CSMMH --firefox-apk org.mozilla.firefox"
+    "start:firefox-android": "npm run build && web-ext run -t firefox-android --adb-device RZCX810PM0Y --firefox-apk org.mozilla.firefox"
   },
   "nyc": {
     "extension": [
