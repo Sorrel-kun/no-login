@@ -1,5 +1,7 @@
 import {defaultOptions} from "./utils";
 
+export let intervalId = {value: undefined};
+
 const closeTranslations = [
     "Close",
     "Cerrar",
