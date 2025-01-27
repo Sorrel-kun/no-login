@@ -34,6 +34,7 @@ module.exports = {
             "https://www.linkedin.com/company/the-nature-conservancy",
             "https://www.instagram.com/nature_org/",
             "https://www.instagram.com/nature_org/?hl=fr",
+            "https://www.instagram.com/accounts/login/?next=%2Fnature_org%2F&source=omni_redirect",
         ],
     },
 };
