@@ -53,17 +53,21 @@ const strToHash = (str, seed = 0) => {
     return 4294967296 * (2097151 & h2) + (h1 >>> 0);
 };
 
-const readLocalStorage = async (key) => {
+const readStorage = async (key, storage) => {
     return new Promise((resolve, reject) => {
-        browser.storage.local.get([key], function (result) {
+        storage.get([key], function (result) {
             let value = result[key];
             if (value === undefined) {
                 value = defaultOptions[key];
-                browser.storage.local.set({[key]: value});
+                storage.set({[key]: value});
             }
             resolve(value);
         });
     });
+};
+
+const readLocalStorage = async (key) => {
+    return readStorage(key, browser.storage.local);
 };
 
 
