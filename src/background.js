@@ -11,6 +11,7 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         // Check if the URL matches the patterns specified in the manifest
         if (tab.url.match(/.*(linkedin|facebook|instagram)\.com.*/)) {
             // Inject content.js as a module
+            console.log('executeScript: ' + tab.url);
             browser.scripting.executeScript({
                 target: {tabId: tabId},
                 files: ['dist/content.bundle.js'],

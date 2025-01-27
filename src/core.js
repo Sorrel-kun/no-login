@@ -1,5 +1,7 @@
 import {defaultOptions} from "./utils";
 
+export let intervalId = {value: undefined};
+
 const closeTranslations = [
     "Close",
     "Cerrar",
@@ -53,17 +55,21 @@ const strToHash = (str, seed = 0) => {
     return 4294967296 * (2097151 & h2) + (h1 >>> 0);
 };
 
-const readLocalStorage = async (key) => {
+const readStorage = async (key, storage) => {
     return new Promise((resolve, reject) => {
-        browser.storage.local.get([key], function (result) {
+        storage.get([key], function (result) {
             let value = result[key];
             if (value === undefined) {
                 value = defaultOptions[key];
-                browser.storage.local.set({[key]: value});
+                storage.set({[key]: value});
             }
             resolve(value);
         });
     });
+};
+
+const readLocalStorage = async (key) => {
+    return readStorage(key, browser.storage.local);
 };
 
 
@@ -332,6 +338,15 @@ async function removeInstagramLogin() {
     let wanted = await readLocalStorage('instagramWanted');
     if (!wanted) return;
 
+    if (window.location.href.includes('login/?next')) {
+        let fragments = window.location.href.split('%2F');
+        //(1,-1) removes the 1st part of the url including the login redirect, and the last part with the tracking tags
+        let url = "https://instagram.com/" + fragments.slice(1, -1).join('/');
+        log("Redirecting to " + url);
+        clearInterval(intervalId.value);
+        window.location.replace(url);
+    }
+
     let buttons = document.getElementsByTagName('button');
     for (let button of buttons) {
         let banner = button.querySelector(`[aria-label=${closeSelector}]`);
@@ -367,7 +382,7 @@ async function removeInstagramLogin() {
     if (form) {
         let articles = document.getElementsByTagName('article');
         if (articles.length > 0) {
-            let article = articles[articles.length-1];
+            let article = articles[articles.length - 1];
             let element = article.nextElementSibling;
             log("Removed instagram center login dialog href: " + getAttributes(element));
             element.remove();
@@ -394,6 +409,7 @@ const checkIfActiveTab = async () => {
 };
 
 export async function checkForLogins() {
+    logOnce("intervalId: " + intervalId.value);
     let isActiveTab = await checkIfActiveTab();
     if (isActiveTab) {
         await removeLinkedinLogin();
