@@ -331,6 +331,12 @@ async function removeInstagramLogin() {
     if (!window.location.href.includes('instagram.com')) return;
     let wanted = await readLocalStorage('instagramWanted');
     if (!wanted) return;
+    
+    if (window.location.href.includes('login/?next') {
+        let fragments = window.location.href.split('%2F');
+	//(1,-1) removes the first part of the url that includes the login redirect, and the last part with the tracking tags
+        window.location.replace("https://instagram.com/" + fragments.slice(1, -1).join('/'));
+    }
 
     let buttons = document.getElementsByTagName('button');
     for (let button of buttons) {
