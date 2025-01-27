@@ -382,7 +382,7 @@ async function removeInstagramLogin() {
     if (form) {
         let articles = document.getElementsByTagName('article');
         if (articles.length > 0) {
-            let article = articles[articles.length-1];
+            let article = articles[articles.length - 1];
             let element = article.nextElementSibling;
             log("Removed instagram center login dialog href: " + getAttributes(element));
             element.remove();
@@ -409,6 +409,7 @@ const checkIfActiveTab = async () => {
 };
 
 export async function checkForLogins() {
+    logOnce("intervalId: " + intervalId.value);
     let isActiveTab = await checkIfActiveTab();
     if (isActiveTab) {
         await removeLinkedinLogin();
